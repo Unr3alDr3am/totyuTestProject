@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * 学生实体类
+ *
+ * @author unresolved
  */
 @Data
 @NoArgsConstructor
