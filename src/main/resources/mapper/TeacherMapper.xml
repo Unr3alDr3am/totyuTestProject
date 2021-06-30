@@ -11,13 +11,13 @@
   </resultMap>
 
   <!-- 通过ID删除数据-->
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteTeacherById" parameterType="java.lang.Integer">
     delete from teacher
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
   <!-- 通过接收服务端数据插入老师信息-->
-  <insert id="insert" parameterType="com.totyu.totyudemo.entity.Teacher">
+  <insert id="insertTeacher" parameterType="com.totyu.totyudemo.entity.Teacher">
     insert into teacher (id, name, age, 
       gender, attendance)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
@@ -25,7 +25,7 @@
   </insert>
 
   <!-- 通过传入新的老师信息更新老师 -->
-  <update id="updateByPrimaryKey" parameterType="com.totyu.totyudemo.entity.Teacher">
+  <update id="updateTeacherById" parameterType="com.totyu.totyudemo.entity.Teacher">
     update teacher
     set name = #{name,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
@@ -35,20 +35,20 @@
   </update>
 
   <!-- 通过传入ID查询老师-->
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectTeacherById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, name, age, gender, attendance
     from teacher
     where id = #{id,jdbcType=INTEGER}
   </select>
 
   <!-- 查询所有老师-->
-  <select id="selectAll" resultMap="BaseResultMap">
+  <select id="selectTeacherList" resultMap="BaseResultMap">
     select id, name, age, gender, attendance
     from teacher
   </select>
 
   <!-- 查询筛选过后的老师集合 -->
-  <select id="selectFilterAll" resultMap="BaseResultMap">
+  <select id="selectTeacherByName" resultMap="BaseResultMap">
     select id, name, age, gender, attendance
     from teacher
     where name like #{name,jdbcType=VARCHAR}
